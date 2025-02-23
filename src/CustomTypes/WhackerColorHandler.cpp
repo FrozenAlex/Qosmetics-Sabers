@@ -53,7 +53,7 @@ namespace Qosmetics::Sabers
             }
         }
         DEBUG("Found {} custom colors materials", customColorMaterialsVec.size());
-        customColorMaterials = il2cpp_utils::vectorToArray(customColorMaterialsVec);
+        customColorMaterials = ArrayW(customColorMaterialsVec);
     }
 
     Sombrero::FastColor WhackerColorHandler::get_LastThisColor() { return lastThisColor; }

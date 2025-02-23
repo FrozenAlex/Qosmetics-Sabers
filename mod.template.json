@@ -1,17 +1,15 @@
 {
-    "_QPVersion": "0.1.1",
-    "name": "${mod_name}",
-    "id": "${mod_id}",
-    "author": "RedBrumbler",
-    "version": "${version}",
-    "packageId": "com.beatgames.beatsaber",
-    "packageVersion": "1.37.0_9064817954",
-    "coverImage": "cover.png",
-    "description": "Qosmetics module that adds Whacker capabilities",
-    "dependencies": [],
-    "lateModFiles": [
-        "libqosmetics-sabers.so"
-    ],
-    "libraryFiles": [],
-    "fileCopies": []
+  "_QPVersion": "0.1.1",
+  "name": "${mod_name}",
+  "id": "${mod_id}",
+  "author": "RedBrumbler",
+  "version": "${version}",
+  "packageId": "com.beatgames.beatsaber",
+  "packageVersion": "1.40.2_4113",
+  "coverImage": "cover.png",
+  "description": "Qosmetics module that adds Whacker capabilities",
+  "dependencies": [],
+  "lateModFiles": ["libqosmetics-sabers.so"],
+  "libraryFiles": [],
+  "fileCopies": []
 }

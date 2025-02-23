@@ -32,34 +32,38 @@
         "qpm qmod manifest",
         "pwsh ./scripts/createqmod.ps1 QosmeticsWhackers -clean"
       ]
-    }
+    },
+    "ndk": "^27.2.12479018",
+    "qmodIncludeDirs": [],
+    "qmodIncludeFiles": [],
+    "qmodOutput": null
   },
   "dependencies": [
     {
       "id": "libil2cpp",
-      "versionRange": "^0.3.0",
+      "versionRange": "^0.4.0",
       "additionalData": {}
     },
     {
       "id": "beatsaber-hook",
-      "versionRange": "^5.1.6",
+      "versionRange": "^6.4.0",
       "additionalData": {}
     },
     {
       "id": "bs-cordl",
-      "versionRange": "^3700.0.0",
+      "versionRange": "^4020.0.0",
       "additionalData": {}
     },
     {
       "id": "custom-types",
-      "versionRange": "^0.17.6",
+      "versionRange": "^0.18.2",
       "additionalData": {
         "private": true
       }
     },
     {
       "id": "scotland2",
-      "versionRange": "^0.1.4",
+      "versionRange": "^0.1.6",
       "additionalData": {
         "includeQmod": false
       }
@@ -77,11 +81,9 @@
       "additionalData": {}
     },
     {
-      "id": "paper",
-      "versionRange": "^3.0.0",
-      "additionalData": {
-        "private": true
-      }
+      "id": "paper2_scotland2",
+      "versionRange": "^4.5.0",
+      "additionalData": {}
     },
     {
       "id": "zip",
@@ -92,21 +94,21 @@
     },
     {
       "id": "qosmetics-core",
-      "versionRange": "^2.3.0",
+      "versionRange": "^2.4.0",
       "additionalData": {
         "private": true
       }
     },
     {
       "id": "lapiz",
-      "versionRange": "^0.2.5",
+      "versionRange": "^0.2.16",
       "additionalData": {
         "private": true
       }
     },
     {
       "id": "bsml",
-      "versionRange": "^0.4.19",
+      "versionRange": "^0.4.24",
       "additionalData": {
         "private": true
       }

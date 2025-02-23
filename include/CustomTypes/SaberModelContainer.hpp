@@ -1,7 +1,12 @@
 #pragma once
 
 #include "SaberObjectConfig.hpp"
+
+// This is needed to resolve cyclic dependency issue so it has to be above
+// IDisposable
+#include "System/Collections/Generic/List_1.hpp"
 #include "System/IDisposable.hpp"
+
 #include "UnityEngine/AssetBundle.hpp"
 #include "UnityEngine/GameObject.hpp"
 #include "UnityEngine/MonoBehaviour.hpp"
@@ -12,36 +17,35 @@
 #include "qosmetics-core/shared/Data/Descriptor.hpp"
 #include "qosmetics-core/shared/Data/Manifest.hpp"
 
-DECLARE_CLASS_CODEGEN_INTERFACES(Qosmetics::Sabers, SaberModelContainer, UnityEngine::MonoBehaviour, classof(::System::IDisposable*),
-                                 DECLARE_INSTANCE_METHOD(void, Start);
-                                 DECLARE_OVERRIDE_METHOD_MATCH(void, Dispose, &::System::IDisposable::Dispose);
-                                 DECLARE_INSTANCE_FIELD(UnityEngine::AssetBundle*, bundle);
-                                 DECLARE_INSTANCE_FIELD(bool, isLoading);
-                                 DECLARE_INSTANCE_FIELD(UnityEngine::GameObject*, currentSaberObject);
+DECLARE_CLASS_CODEGEN_INTERFACES(Qosmetics::Sabers, SaberModelContainer, UnityEngine::MonoBehaviour, ::System::IDisposable*) {
+    DECLARE_INSTANCE_METHOD(void, Start);
+    DECLARE_OVERRIDE_METHOD_MATCH(void, Dispose, &::System::IDisposable::Dispose);
+    DECLARE_INSTANCE_FIELD(UnityEngine::AssetBundle*, bundle);
+    DECLARE_INSTANCE_FIELD(bool, isLoading);
+    DECLARE_INSTANCE_FIELD(UnityEngine::GameObject*, currentSaberObject);
 
-                                 DECLARE_CTOR(ctor);
-                                 DECLARE_SIMPLE_DTOR();
+    DECLARE_CTOR(ctor);
+    DECLARE_SIMPLE_DTOR();
 
-                                 public
-                                 :
+    public
+    :
 
-                                 using Manifest = Qosmetics::Core::Manifest<Qosmetics::Sabers::SaberObjectConfig>;
+    using Manifest = Qosmetics::Core::Manifest<Qosmetics::Sabers::SaberObjectConfig>;
 
-                                 static SaberModelContainer * get_instance();
-                                 bool LoadObject(const Manifest& manifest, std::function<void(SaberModelContainer*)> onFinished);
-                                 bool LoadObject(const Qosmetics::Core::Descriptor& descriptor, std::function<void(SaberModelContainer*)> onFinished = nullptr);
-                                 const SaberObjectConfig& GetSaberConfig();
-                                 const Qosmetics::Core::Descriptor& GetDescriptor();
-                                 bool Default();
+    static SaberModelContainer * get_instance();
+    bool LoadObject(const Manifest& manifest, std::function<void(SaberModelContainer*)> onFinished);
+    bool LoadObject(const Qosmetics::Core::Descriptor& descriptor, std::function<void(SaberModelContainer*)> onFinished = nullptr);
+    const SaberObjectConfig& GetSaberConfig();
+    const Qosmetics::Core::Descriptor& GetDescriptor();
+    bool Default();
 
-                                 private
-                                 :
+    private
+    :
 
-                                 custom_types::Helpers::Coroutine LoadBundleRoutine(std::function<void(SaberModelContainer*)> onFinished);
-                                 void Unload();
+    custom_types::Helpers::Coroutine LoadBundleRoutine(std::function<void(SaberModelContainer*)> onFinished);
+    void Unload();
 
-                                 Manifest currentManifest;
+    Manifest currentManifest;
 
-                                 static SaberModelContainer * instance;
-
-)
+    static SaberModelContainer * instance;
+};

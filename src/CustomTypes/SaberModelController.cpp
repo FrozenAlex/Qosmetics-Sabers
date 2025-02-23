@@ -200,7 +200,9 @@ namespace Qosmetics::Sabers
         auto base = left ? _modelProvider->_localOriginalLeftPrefab : _modelProvider->_localOriginalRightPrefab;
         auto p = _container->InstantiatePrefab(base->get_gameObject());
         auto saberModelController = p->GetComponent<GlobalNamespace::SaberModelController*>();
-        saberModelController->Init(get_transform(), saber);
+
+        // TODO: We need trail tint color... For now I'll pass blue
+        saberModelController->Init(get_transform(), saber, Sombrero::FastColor::blue());
 
         auto& globalConfig = Config::get_config();
 

@@ -7,3 +7,4 @@ mod.template.json
 *.log
 *.qmod
 mod.json
+.cache
